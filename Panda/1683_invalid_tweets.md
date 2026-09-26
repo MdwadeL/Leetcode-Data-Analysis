@@ -6,6 +6,9 @@ content = {values consist of: ABC123, '!', ' '}
 An invalid tweet is when [content] holds a value with more than 15 characters
 
 ## Skills
+- String length
+- Filtering rows
+- Text validation
 
 # Solution 1
     tweets = tweets[
