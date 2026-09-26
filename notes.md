@@ -7,6 +7,7 @@ Skills:
 - skill #3
 
 solution:
+
 import pandas as pd
 
 
