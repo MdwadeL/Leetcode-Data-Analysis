@@ -1,8 +1,8 @@
 # 595 Big Countries
 
 A big country fits one of the parameters:
-        area >= 3,000,000 km^2
-        population >= 25,000,000
+        - area >= 3,000,000 km^2
+        - population >= 25,000,000
 
 ## Skills
 - multi conditional filtering
