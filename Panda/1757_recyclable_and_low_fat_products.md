@@ -1,13 +1,12 @@
-"""
-1757 Recyclable and Low Fat Products
+# 1757 Recyclable and Low Fat Products
 
-    # product_id PK = {...}
-    # low_fats (catg) = {Y, N}
-    # recyclable (catg) = {Y, N}
+    product_id PK = {...}
+    low_fats (catg) = {Y, N}
+    recyclable (catg) = {Y, N}
 
-    # inf products that are low fat AND recycable
+    find products that are low fat AND recycable
     
-Skills:
+## Skills:
 - basic filtering
 - dataframe manipulation
 
@@ -26,7 +25,7 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
     products = products[['product_id']]
 
     return products
-# runtime: 299ms
+## runtime: 299ms
 
 
 # Solution 2
@@ -36,9 +35,9 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
     ].drop(columns=['low_fats', 'recyclable'])
 
     return products
-# runtime: 256
+## runtime: 256
 
 
 # Solution 3
     return products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
-# runtime: 236
+## runtime: 236
