@@ -1,7 +1,6 @@
 # 1148 Article Views I
 Find the authors who viewed their own books.
-
-author_id and viewer_id come from the same independent values
+- author_id and viewer_id come from the same independent value column
 
 ## Skills
 - Boolean Filtering/Indexing
