@@ -1,10 +1,12 @@
-LeetCode: Big Countries
+# Python Script Formatting
+LeetCode: problem name
 
 Skills:
-- Pandas filtering
-- Boolean conditions
-- Selecting columns
+- skill #1
+- skill #2
+- skill #3
 
+solution:
 import pandas as pd
 
 
