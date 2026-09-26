@@ -6,8 +6,9 @@
     find the names of customers who were referenced by no one and customer's id that isn't 2
     
 ## Skills:
-- boolean filtering
-- null handling
+- Filtering rows
+- NULL handling
+- Boolean OR
 
 # Solution 1
     solution = customer[
