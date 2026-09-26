@@ -7,8 +7,9 @@
     find products that are low fat AND recycable
     
 ## Skills:
-- basic filtering
-- dataframe manipulation
+- Filtering rows
+- Multiple conditions
+- Boolean AND
 
 # Solution 1
     products = products[
