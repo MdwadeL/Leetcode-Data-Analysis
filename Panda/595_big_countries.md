@@ -5,7 +5,10 @@ A big country fits one of the parameters
 - population >= 25,000,000
 
 ## Skills
-- multi conditional filtering
+- Multi Conditional Filtering
+- Filtering rows
+- Boolean OR
+- Numeric comparisons
   
 # Solution 1
     solution = world[
