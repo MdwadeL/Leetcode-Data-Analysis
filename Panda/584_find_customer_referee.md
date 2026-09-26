@@ -5,7 +5,7 @@
 
     find the names of customers who were referenced by no one and customer's id that isn't 2
     
-Skills:
+## Skills:
 - boolean filtering
 - null handling
 
