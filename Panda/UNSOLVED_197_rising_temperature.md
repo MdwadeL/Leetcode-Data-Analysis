@@ -9,7 +9,7 @@ Find the day whose temperature is higher than yesterday
 - Date comparison
 - Previous day matching
 
-# Solution 2:
+# Solution:
     weather['recordDate'] = pd.to_datetime(weather['recordDate'])
     weather['prevDate'] = weather['recordDate'] - pd.offsets.Day(-1)
 
