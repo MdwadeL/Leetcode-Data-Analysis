@@ -17,9 +17,11 @@
     ][['name']]
 
     return solution
-## runtime: 243ms
+## runtime: 296 ms
+## memory: 67.44 MB
 
 
 # Solution 2
         return customer[ (customer['referee_id'] != 2) | (customer['referee_id']).isnull() ][['name']]
-## runtime: 217ms
+## runtime: 280ms
+## memory: 67.00 MB
