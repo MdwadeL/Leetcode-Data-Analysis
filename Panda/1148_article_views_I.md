@@ -9,13 +9,16 @@ Find the authors who viewed their own books.
 - Sorting
 - Renaming and Conversion
 
+
 # Solution 1
     views = views[
         (views['author_id'] == views['viewer_id'])
     ].drop(columns=['view_date', 'article_id', 'viewer_id']).rename(columns=({"author_id" : "id"})).drop_duplicates().sort_values(by=['id'])
 
     return views
-## runtime: 265 ms
+### runtime: 265 ms
+### memory: 67.46 MB
+
 
 # Solution 2
     drop_cols = ['view_date', 'article_id', 'viewer_id']
@@ -29,4 +32,5 @@ Find the authors who viewed their own books.
     views = views.sort_values(by=['id'])
 
     return views
-## runtime: 261 ms
+### runtime: 261 ms
+### memory: 67.30 MB
