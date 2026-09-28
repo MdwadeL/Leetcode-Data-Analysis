@@ -1,14 +1,15 @@
 # 1661 Average Time of Process per Machine
 Activity(machine_id, process_id, activity_type, timestamp)
 
-    pk = {machine_id, process_id, activity_type}
-    machine_id (int): ID of a machine
+pk = {machine_id, process_id, activity_type}
 
-    process_id (int): ID of the process running on the machine
+machine_id (int): ID of a machine
 
-    activity_type (enum): start or end
+process_id (int): ID of the process running on the machine
 
-    timestamp (float): the current time in seconds
+activity_type (enum): start or end
+
+timestamp (float): the current time in seconds
 
 for each process_id + activity_type(start) < process_id + activity_type(end)
 
