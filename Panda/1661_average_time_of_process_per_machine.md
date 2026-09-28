@@ -1,13 +1,12 @@
 # 1661 Average Time of Process per Machine
-Activity(machine_id, process_id, activity_type, timestamp)
-
+    Activity(machine_id, process_id, activity_type, timestamp)
     pk = {machine_id, process_id, activity_type}
     machine_id (int): ID of a machine
     process_id (int): ID of the process running on the machine
     activity_type (enum): start or end
     timestamp (float): the current time in seconds
 
-for each process_id + activity_type(start) < process_id + activity_type(end)
+For each process_id + activity_type(start) < process_id + activity_type(end)
 
 Find the average time each machine takes to complete a process. Round the time to 3 decimals
     
