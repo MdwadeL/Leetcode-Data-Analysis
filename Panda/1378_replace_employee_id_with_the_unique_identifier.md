@@ -15,9 +15,11 @@ Employees:
 
 # Solution 1
     return employees.merge(employee_uni, on='id', how='left').drop(columns='id')
-# runtime: 346
+### runtime: 346 ms
+### memory: 67.39 MB
 
 # Solution 2
     employees = employees.merge(employee_uni, on='id', how='left')
     return employees[['unique_id', 'name']]
-# runtime: 306
+### runtime: 306
+### memory: 67.93 MB
