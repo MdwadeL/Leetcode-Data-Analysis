@@ -10,10 +10,11 @@ An invalid tweet is when [content] holds a value with more than 15 characters
 - Filtering rows
 - Text validation
 
-# Solution 1
+# Solution:
     tweets = tweets[
         (tweets['content'].str.len() > 15)
     ][['tweet_id']]
 
     return tweets
-# runtime: 276ms
+### runtime: 276 ms
+### memory: 67.37 MB
