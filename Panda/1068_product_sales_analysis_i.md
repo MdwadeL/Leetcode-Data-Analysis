@@ -13,11 +13,13 @@
     ][['product_name', 'year', 'price']]
     
     return product
-## runtime: 385 ms
+### runtime: 385 ms
+### memory: 70.22 MB
 
 
 # Solution 2
     product = product.merge(sales, on='product_id', how='inner')[['product_name', 'year', 'price']]
     
     return product
-## runtime: 343 ms
+### runtime: 343 ms
+### memory: 70.80 MB
