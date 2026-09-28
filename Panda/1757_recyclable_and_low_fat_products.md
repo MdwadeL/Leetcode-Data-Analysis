@@ -20,7 +20,8 @@
     products = products[['product_id']]
 
     return products
-## runtime: 299ms
+## runtime: 314 ms
+## memory: 67.20 MB
 
 
 # Solution 2
@@ -30,9 +31,11 @@
     ].drop(columns=['low_fats', 'recyclable'])
 
     return products
-## runtime: 256
+## runtime: 330 ms
+## memory: 67.36 MB
 
 
 # Solution 3
     return products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
-## runtime: 236
+## runtime: 284 ms
+## memory: 67.57 MB
