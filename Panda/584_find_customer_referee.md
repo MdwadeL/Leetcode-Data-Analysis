@@ -17,7 +17,7 @@
     ][['name']]
 
     return solution
-## runtime: 296 ms
+### runtime: 296 ms
 ## memory: 67.44 MB
 
 
