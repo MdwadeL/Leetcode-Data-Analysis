@@ -1,5 +1,6 @@
 # 1661 Average Time of Process per Machine
 Activity(machine_id, process_id, activity_type, timestamp)
+
 pk = {machine_id, process_id, activity_type}
 
 machine_id (int): ID of a machine
