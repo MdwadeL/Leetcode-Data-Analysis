@@ -29,4 +29,5 @@ amount = {...}
     solution = solution.groupby('customer_id').agg(count_no_trans=('visit_id', 'count')).reset_index()
 
     return solution
-# runtime: 399 ms
+### runtime: 399 ms
+### memory: 68.85 MB
