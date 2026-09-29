@@ -32,4 +32,5 @@ Find the average time each machine takes to complete a process. Round the time t
     avg_processed = processed[['machine_id', 'running_time']].groupby('machine_id').agg(processing_time=('running_time', 'mean')).round(3).reset_index()
 
     return avg_processed
-## runtime: 299
+### runtime: 299 ms
+### memory: 67.96 MB
