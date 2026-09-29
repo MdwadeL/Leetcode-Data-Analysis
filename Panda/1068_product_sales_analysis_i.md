@@ -25,7 +25,7 @@ PK = {product_id
 - Column selection
 
 # Solution
-    products_by_year_price = product.merge(sales, on='product_id', how='inner').reindex(columns=['sale_id', 'product_id', 'product_name', 'year', 'quantitiy', 'price'])
+    products_by_saleid = product.merge(sales, on='product_id', how='inner').reindex(columns=['sale_id', 'product_id', 'product_name', 'year', 'quantitiy', 'price'])
 
 the table produced will look similar to:
 | sale_id | product_id | product_name | year | quantitiy | price |
@@ -34,7 +34,7 @@ the table produced will look similar to:
 | 2       | 100        | Nokia        | 2009 | null      | 5000  |
 | 7       | 200        | Apple        | 2011 | null      | 9000  |
 
-    return products_by_year_price[['product_name', 'year', 'price']]
+    return products_by_saleid[['product_name', 'year', 'price']]
 
 Produces:
 | product_name | year | price |
