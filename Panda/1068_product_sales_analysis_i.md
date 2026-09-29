@@ -1,6 +1,7 @@
 # 1068 Product Sales Analysis I
 Sales(sales_id, product_id, year, quantity_ price)
-PK = {sales_id, year}
+- PK = {sales_id, year}
+- FK = {product_id} REFERENCES Product(product_id)
 
 Product(product_id, product_name)
 PK = {product_id
