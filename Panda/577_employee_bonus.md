@@ -22,5 +22,5 @@ Write a solution to report the name and bonus amount of each employee who satisf
     ][['name', 'bonus']]
 
     return payout
-### runtime: ms
-### memory: MB
+### runtime: 316 ms
+### memory: 68.56 MB
