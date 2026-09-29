@@ -1,13 +1,12 @@
 # 1378 Replace Employee ID With The Unique Identifier
-Employees:
-        id PK= {...}
-        name = {...}
+Employees(id, name)
+        PK = {id}
 
-    EmployeeUNI:
-        id PK = {...}
-        unique_id PK = {...}
+EmployeeUNI(id, unique_id)
+        PK = {id, unique_id}
 
-    Show the [unique_id] of each [id] in employee, if none exist then show null
+Show the [unique_id] of each [id] in employee, if none exist then show null
+
 ## Skills
 - LEFT JOIN
 - Matching keys
