@@ -4,7 +4,7 @@ Sales(sales_id, product_id, year, quantity_ price)
 - FK = {product_id} REFERENCES Product(product_id)
 
 Product(product_id, product_name)
-PK = {product_id
+- PK = {product_id
 
 ### Sales:
 | sale_id | product_id | year | quantity | price |
