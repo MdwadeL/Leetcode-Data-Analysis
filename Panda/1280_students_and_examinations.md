@@ -1,6 +1,42 @@
 # 1280 Students and Examinations
+Students(student_id, student_name)
+- PK = {student_id}
 
-## Skills
+Subjects(subject_name)
+- PK = {subject_name}
+  
+Examinations(student_id, subject_name)
+- FK = {student_id} references Students(student_id)
+- FK = {subject_name} references Subjects(subject_name)
+
+| student_id | student_name |
+| ---------- | ------------ |
+| 1          | Alice        |
+| 2          | Bob          |
+| 13         | John         |
+| 6          | Alex         |
+
+| subject_name |
+| ------------ |
+| Math         |
+| Physics      |
+| Programming  |
+
+| student_id | subject_name |
+| ---------- | ------------ |
+| 1          | Math         |
+| 1          | Physics      |
+| 1          | Programming  |
+| 2          | Programming  |
+| 1          | Physics      |
+| 1          | Math         |
+| 13         | Math         |
+| 13         | Programming  |
+| 13         | Physics      |
+| 2          | Math         |
+| 1          | Math         |
+
+### Skills
 - CROSS JOIN
 - LEFT JOIN
 - COUNT
