@@ -20,6 +20,8 @@ Product(product_id, product_name)
 | 200        | Apple        |
 | 300        | Samsung      |
 
+Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+
 ## Skills
 - INNER JOIN
 - Matching keys
