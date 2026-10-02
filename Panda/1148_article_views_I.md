@@ -22,8 +22,17 @@ Find the authors who viewed their own books.
 - Renaming and Conversion
 
 # Solution
-    views = views[
+    author_view_themselves = views[
         (views['author_id'] == views['viewer_id'])
-    ].drop(columns=['view_date', 'article_id', 'viewer_id']).rename(columns=({"author_id" : "id"})).drop_duplicates().sort_values(by=['id'])
+    ].drop_duplicates(['author_id', 'viewer_id']).sort_values(by='author_id').rename(columns={'author_id' : 'id'})
+    
+| article_id | id | viewer_id | view_date  |
+| ---------- | -- | --------- | ---------- |
+| 3          | 4  | 4         | 2019-07-21 |
+| 2          | 7  | 7         | 2019-08-01 |
 
-    return views
+    return author_view_themselves[['id']]
+| id |
+| -- |
+| 4  |
+| 7  |
