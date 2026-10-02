@@ -1,8 +1,16 @@
 # 1148 Article Views I
 Views(article_id, author_id, viewer_id, view_date)
 
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| article_id    | int     |
+| author_id     | int     |
+| viewer_id     | int     |
+| view_date     | date    |
++---------------+---------+
+
 Find the authors who viewed their own books.
-- author_id and viewer_id come from the same independent value column
 
 ## Skills
 - Boolean Filtering/Indexing
@@ -10,7 +18,6 @@ Find the authors who viewed their own books.
 - Deduplication
 - Sorting
 - Renaming and Conversion
-
 
 # Solution 1
     views = views[
