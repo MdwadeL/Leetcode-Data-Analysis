@@ -40,7 +40,7 @@ the table produced will look similar to:
     products_year_price = product_sales_table[['product_name', 'year', 'price']]
     return products_year_price
     
-Produces:
+returns:
 | product_name | year | price |
 | ------------ | ---- | ----- |
 | Nokia        | 2008 | 5000  |
