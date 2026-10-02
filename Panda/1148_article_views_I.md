@@ -34,6 +34,7 @@ the table produced will look similar to:
 | 2          | 7  | 7         | 2019-08-01 |
 
     return author_view_themselves[['id']]
+produces:
 | id |
 | -- |
 | 4  |
