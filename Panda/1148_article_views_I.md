@@ -1,4 +1,6 @@
 # 1148 Article Views I
+Views(article_id, author_id, viewer_id, view_date)
+PK = {}
 Find the authors who viewed their own books.
 - author_id and viewer_id come from the same independent value column
 
