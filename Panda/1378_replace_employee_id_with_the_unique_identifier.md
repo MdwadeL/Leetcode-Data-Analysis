@@ -1,26 +1,40 @@
 # 1378 Replace Employee ID With The Unique Identifier
 Employees(id, name)
+- PK = {id}
 
-PK = {id}
+| id | name     |
+| -- | -------- |
+| 1  | Alice    |
+| 7  | Bob      |
+| 11 | Meir     |
+| 90 | Winston  |
+| 3  | Jonathan |
 
 EmployeeUNI(id, unique_id)
+- PK = {id, unique_id}
 
-PK = {id, unique_id}
+| id | unique_id |
+| -- | --------- |
+| 3  | 1         |
+| 11 | 2         |
+| 90 | 3         |
 
-Show the [unique_id] of each [id] in employee, if none exist then show null
+Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
 
-## Skills
+### Skills
 - LEFT JOIN
 - Matching keys
 - Missing values
 
-# Solution 1
-    return employees.merge(employee_uni, on='id', how='left').drop(columns='id')
-### runtime: 346 ms
-### memory: 67.39 MB
+# Solution
+    employees = employees.set_index('id').join(employee_uni.set_index('id'), lsuffix = '_left', rsuffix='_right', how='left')
 
-# Solution 2
-    employees = employees.merge(employee_uni, on='id', how='left')
-    return employees[['unique_id', 'name']]
-### runtime: 306
-### memory: 67.93 MB
+    return employees
+
+| name     | unique_id |
+| -------- | --------- |
+| Alice    | null      |
+| Bob      | null      |
+| Meir     | 2         |
+| Winston  | 3         |
+| Jonathan | 1         |
