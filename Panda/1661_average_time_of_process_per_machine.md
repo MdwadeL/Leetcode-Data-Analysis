@@ -61,7 +61,7 @@ The time to complete a process is the 'end' timestamp minus the 'start' timestam
 
 <br>
 
-    avg_machine_time = activity_full.groupby('machine_id').agg(processing_time=('time_elapsed', 'mean')).reset_index()
+    avg_machine_time = activity_full.groupby('machine_id').agg(processing_time=('time_elapsed', 'mean')).round(3).reset_index()
 
 | machine_id | processing_time |
 | ---------- | --------------- |
