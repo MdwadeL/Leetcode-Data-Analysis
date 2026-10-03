@@ -26,15 +26,14 @@ Find the authors who viewed their own books.
         (views['author_id'] == views['viewer_id'])
     ].drop_duplicates(['author_id', 'viewer_id']).sort_values(by='author_id').rename(columns={'author_id' : 'id'})
 
-the table produced will look similar to:
-
 | article_id | id | viewer_id | view_date  |
 | ---------- | -- | --------- | ---------- |
 | 3          | 4  | 4         | 2019-07-21 |
 | 2          | 7  | 7         | 2019-08-01 |
 
+<br>
     return author_view_themselves[['id']]
-returns:
+<b>returns:</b>
 | id |
 | -- |
 | 4  |
