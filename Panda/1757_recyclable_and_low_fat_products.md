@@ -11,6 +11,9 @@ products(product_id, low_fats, recyclable)
 | 2          | N        | Y          |
 | 3          | Y        | Y          |
 | 4          | N        | N          |
+
+<br>
+
 Write a solution to find the ids of products that are both low fat and recyclable.
 
     
