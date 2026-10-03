@@ -30,17 +30,17 @@ Write a solution to report the product_name, year, and price for each sale_id in
 # Solution
     product_sales_table = product.merge(sales, on='product_id', how='inner')
 
-the table produced will look similar to:
 | sale_id | product_id | product_name | year | quantitiy | price |
 | ------- | ---------- | ------------ | ---- | --------- | ----- |
 | 1       | 100        | Nokia        | 2008 | null      | 5000  |
 | 2       | 100        | Nokia        | 2009 | null      | 5000  |
 | 7       | 200        | Apple        | 2011 | null      | 9000  |
 
+<br>
+
     products_year_price = product_sales_table[['product_name', 'year', 'price']]
     return products_year_price
-    
-returns:
+
 | product_name | year | price |
 | ------------ | ---- | ----- |
 | Nokia        | 2008 | 5000  |
