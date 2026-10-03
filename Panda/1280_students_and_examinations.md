@@ -56,7 +56,9 @@ Examinations(student_id, subject_name)
 | 13         | Math         | 1              |
 | 13         | Physics      | 1              |
 | 13         | Programming  | 1              |
+
 <br>
+
     scheduled = students.merge(subjects, how='cross')
 | student_id | student_name | subject_name |
 | ---------- | ------------ | ------------ |
