@@ -75,9 +75,10 @@ Examinations(student_id, subject_name)
 | 6          | Alex         | Physics      |
 | 6          | Alex         | Programming  |
 
+<br>
+
     taken_test = scheduled.merge(exam_attedance_count, on=['student_id', 'subject_name'], how='left').sort_values(by=['student_id', 'subject_name'])
 
-produces:
 | student_id | student_name | subject_name | attended_exams |
 | ---------- | ------------ | ------------ | -------------- |
 | 1          | Alice        | Math         | 3              |
@@ -93,9 +94,10 @@ produces:
 | 13         | John         | Physics      | 1              |
 | 13         | John         | Programming  | 1              |
 
+<br>
+
     taken_test['attended_exams'] = taken_test['attended_exams'].replace(np.nan, 0)
     
-returns:
 | student_id | student_name | subject_name | attended_exams |
 | ---------- | ------------ | ------------ | -------------- |
 | 1          | Alice        | Math         | 3              |
