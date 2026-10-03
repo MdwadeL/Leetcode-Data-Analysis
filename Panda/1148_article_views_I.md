@@ -34,8 +34,6 @@ Find the authors who viewed their own books.
 <br>
 
     return author_view_themselves[['id']]
-    
-<b>returns:</b>
 
 | id |
 | -- |
