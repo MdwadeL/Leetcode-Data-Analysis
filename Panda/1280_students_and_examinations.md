@@ -46,8 +46,6 @@ Examinations(student_id, subject_name)
     import numpy as np
     
     exam_attedance_count = examinations.groupby(['student_id', 'subject_name']).agg(attended_exams=('student_id', 'count')).reset_index()
-
-produces:
 | student_id | subject_name | attended_exams |
 | ---------- | ------------ | -------------- |
 | 1          | Math         | 3              |
@@ -58,10 +56,8 @@ produces:
 | 13         | Math         | 1              |
 | 13         | Physics      | 1              |
 | 13         | Programming  | 1              |
-
+\
     scheduled = students.merge(subjects, how='cross')
-
-produces:
 | student_id | student_name | subject_name |
 | ---------- | ------------ | ------------ |
 | 1          | Alice        | Math         |
