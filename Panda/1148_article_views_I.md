@@ -32,6 +32,7 @@ Find the authors who viewed their own books.
 | 2          | 7  | 7         | 2019-08-01 |
 
 <br>
+
     return author_view_themselves[['id']]
     
 <b>returns:</b>
