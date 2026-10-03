@@ -1,9 +1,12 @@
 # 1683 Invalid Tweets
+tweets(tweet_id, content)
 
-tweet_id PK = {...}
-content = {values consist of: ABC123, '!', ' '}
+| tweet_id | content                           |
+| -------- | --------------------------------- |
+| 1        | Let us Code                       |
+| 2        | More than fifteen chars are here! |
 
-An invalid tweet is when [content] holds a value with more than 15 characters
+Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
 
 ## Skills
 - String length
@@ -11,10 +14,14 @@ An invalid tweet is when [content] holds a value with more than 15 characters
 - Text validation
 
 # Solution:
-    tweets = tweets[
+    invalid_tweets = tweets[
         (tweets['content'].str.len() > 15)
-    ][['tweet_id']]
+    ]
 
-    return tweets
-### runtime: 276 ms
-### memory: 67.37 MB
+    return invalid_tweets[['tweet_id']]
+
+<br>
+
+| tweet_id |
+| -------- |
+| 2        |
