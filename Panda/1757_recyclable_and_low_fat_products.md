@@ -1,41 +1,34 @@
 # 1757 Recyclable and Low Fat Products
 
-    product_id PK = {...}
-    low_fats (catg) = {Y, N}
-    recyclable (catg) = {Y, N}
+products(product_id, low_fats, recyclable)
+- PK = {product_id}
+<br>
 
-    find products that are low fat AND recycable
+| product_id | low_fats | recyclable |
+| ---------- | -------- | ---------- |
+| 0          | Y        | N          |
+| 1          | Y        | Y          |
+| 2          | N        | Y          |
+| 3          | Y        | Y          |
+| 4          | N        | N          |
+Write a solution to find the ids of products that are both low fat and recyclable.
+
     
 ## Skills:
 - Filtering rows
 - Multiple conditions
 - Boolean AND
 
-# Solution 1
-    products = products[
+# Solution 
+
+    lowfat_and_recyclable = products[
         (products['low_fats'] == 'Y') &
         (products['recyclable'] == 'Y')
     ]
 
-    products = products[['product_id']]
+    return lowfat_and_recyclable[['product_id']]
 
-    return products
-## runtime: 314 ms
-## memory: 67.20 MB
-
-
-# Solution 2
-    products = products[
-        (products['low_fats'] == 'Y') &
-        (products['recyclable'] == 'Y')
-    ].drop(columns=['low_fats', 'recyclable'])
-
-    return products
-## runtime: 330 ms
-## memory: 67.36 MB
-
-
-# Solution 3
-    return products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
-## runtime: 284 ms
-## memory: 67.57 MB
+| product_id |
+| ---------- |
+| 1          |
+| 3          |
