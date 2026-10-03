@@ -10,6 +10,8 @@ Employees(id, name)
 | 90 | Winston  |
 | 3  | Jonathan |
 
+<br>
+
 EmployeeUNI(id, unique_id)
 - PK = {id, unique_id}
 
