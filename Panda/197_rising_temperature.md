@@ -1,8 +1,17 @@
 # 197 Rising Temperature
 Weather (id, recordDate, temperature)
-pk = {id}
+- pk = {id}
 
-Find the day whose temperature is higher than yesterday
+| id | recordDate | temperature |
+| -- | ---------- | ----------- |
+| 1  | 2015-01-01 | 10          |
+| 2  | 2015-01-02 | 25          |
+| 3  | 2015-01-03 | 20          |
+| 4  | 2015-01-04 | 30          |
+
+<br>
+
+Write a solution to find all dates' id with higher temperatures compared to its previous dates (yesterday).
 
 ## Skills
 - Self join
@@ -10,54 +19,28 @@ Find the day whose temperature is higher than yesterday
 - Previous day matching
 
 
-# Solution 1:
-    weather['recordDate'] = pd.to_datetime(weather['recordDate'])
-    weather['prevDate'] = weather['recordDate'] - pd.offsets.Day(-1)
+# Solution
 
-    full_weather = weather.merge(
-        weather,  how='left', 
-        left_on='recordDate', right_on='prevDate', 
-        suffixes=('_today', '_yesterday')
-    ).drop(columns=['prevDate_today', 'prevDate_yesterday'])
+    weather['yesterdayDate'] = weather['recordDate'] - pd.Timedelta(days=1)
 
-    full_weather = full_weather[
-        (full_weather['temperature_today'] > full_weather['temperature_yesterday'])
-    ][['id_today']].rename(columns={'id_today' : 'id'})
+| id | recordDate | temperature | yesterdayDate |
+| -- | ---------- | ----------- | ------------- |
+| 1  | 2015-01-01 | 10          | 2014-12-31    |
+| 2  | 2015-01-02 | 25          | 2015-01-01    |
+| 3  | 2015-01-03 | 20          | 2015-01-02    |
+| 4  | 2015-01-04 | 30          | 2015-01-03    |
 
-    return full_weather
-## runtime: 294 ms
+<br>
 
+    weather = weather.merge(weather, how='left', left_on='yesterdayDate', right_on='recordDate', suffixes=('_tdy', '_yest')).drop(columns=['recordDate_yest', 'yesterdayDate_yest'])
 
-# Solution 2:
-This solution reads cleaner then Solution 1 by grabbing the nextDate instead of the the prevDate
-    weather['recordDate'] = pd.to_datetime(weather['recordDate'])
-    weather['nextDate'] = weather['recordDate'] + pd.offsets.Day(1)
-    
-    full_weather = weather.merge(
-        weather,
-        how='left',
-        left_on='recordDate',
-        right_on='nextDate',
-        suffixes=('_today', '_yesterday')
-    ).drop(columns=['nextDate_today', 'nextDate_yesterday'])
-    
-    full_weather = full_weather[
-        full_weather['temperature_today'] > full_weather['temperature_yesterday']
-    ][['id_today']].rename(columns={'id_today': 'id'})
-    
-    return full_weather
-## Runtime: 290 ms
+| id_tdy | recordDate_tdy | temperature_tdy | yesterdayDate_tdy | id_yest | temperature_yest |
+| ------ | -------------- | --------------- | ----------------- | ------- | ---------------- |
+| 1      | 2015-01-01     | 10              | 2014-12-31        | null    | null             |
+| 2      | 2015-01-02     | 25              | 2015-01-01        | 1       | 10               |
+| 3      | 2015-01-03     | 20              | 2015-01-02        | 2       | 25               |
+| 4      | 2015-01-04     | 30              | 2015-01-03        | 3       | 20               |
 
 
-# Solution 3:
-## Passes only 8/15 testcases
-    weather['prev_temp'] = weather['temperature'].shift(1)
-    weather = weather[
-        (weather['temperature'] > weather['prev_temp'])][['id']]
-    return weather
 
-## Fails: 
-| id | recordDate | temperature |
-| -- | ---------- | ----------- |
-| 1  | 2000-12-16 | 3           |
-| 2  | 2000-12-15 | -1          |
+
