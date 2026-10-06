@@ -1,24 +1,53 @@
 # 570 Managers with at Least 5 Direct Reports
 
+Manager(id, name, department, managerId)
+- PK = {id}
+
+| id  | name  | department | managerId |
+| --- | ----- | ---------- | --------- |
+| 101 | John  | A          | null      |
+| 102 | Dan   | A          | 101       |
+| 103 | James | A          | 101       |
+| 104 | Amy   | A          | 101       |
+| 105 | Anne  | A          | 101       |
+| 106 | Ron   | B          | 101       |
+
+<br>
+
+Write a solution to find managers with at least five direct reports.
+
+
 ## Skills
 - Self join
 - GROUP BY
 - HAVING
 
-# Solution 1:
-    managed_num = employee.groupby('managerId').agg(managing_total=('managerId', 'count')).reset_index()
+# Solution:
 
-    managerial = employee.merge(managed_num, left_on='id', right_on='managerId', how='left').drop(columns='managerId_y')
+    num_of_emps_managed = employee.groupby('managerId').agg(num_employees_managed=('managerId', 'count')).reset_index().rename(columns={'managerId' : 'id'})
 
-    return managerial[(managerial['managing_total']>=5)][['name']]
-### runtime: 312 ms
-### memory: 68.90 MB
+| id  | num_employees_managed |
+| --- | --------------------- |
+| 101 | 5                     |
 
-# Solution 2:
-    managed_num = employee.groupby('managerId').agg(managing_total=('managerId', 'count')).reset_index()
+<br>
 
-    employee = employee.merge(managed_num, how='inner', left_on='id', right_on='managerId')
+    employee = employee.merge(num_of_emps_managed, on='id', how='left')
 
-    return employee[employee['managing_total']>=5][['name']]
-### runtime: 330 ms
-### memory: 69.67 MB
+| id  | name  | department | managerId | num_employees_managed |
+| --- | ----- | ---------- | --------- | --------------------- |
+| 101 | John  | A          | null      | 5                     |
+| 102 | Dan   | A          | 101       | null                  |
+| 103 | James | A          | 101       | null                  |
+| 104 | Amy   | A          | 101       | null                  |
+| 105 | Anne  | A          | 101       | null                  |
+| 106 | Ron   | B          | 101       | null                  |
+
+<br>
+
+    return employee[(employee['num_employees_managed'] > 4)][['name']]
+
+| name |
+| ---- |
+| John |
+
