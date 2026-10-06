@@ -32,3 +32,33 @@ Write a solution to find the average selling price for each product. average_pri
 - NULL handling
 
 # Solution
+
+    sales = prices.merge(units_sold, how='outer', on='product_id')
+    
+    sales = sales[
+        (
+            (sales['purchase_date'] <= sales['end_date']) &
+            (sales['purchase_date'] >= sales['start_date'])
+        ) |
+        sales['purchase_date'].isnull()
+    ]
+
+    sales['units'] = sales['units'].fillna(0)
+
+    sales['revenue'] = sales['price'] * sales['units']
+
+    stats = sales.groupby('product_id').agg(
+        total_units=('units', 'sum'),
+        total_revenue=('revenue', 'sum')
+    ).reset_index()
+
+    stats['average_price'] = (stats['total_revenue'] / stats['total_units']).round(2)
+
+    stats.loc[stats['total_units'] == 0, 'average_price'] = 0
+
+    return stats[['product_id', 'average_price']]
+
+| product_id | average_price |
+| ---------- | ------------- |
+| 1          | 6.96          |
+| 2          | 16.96         |
