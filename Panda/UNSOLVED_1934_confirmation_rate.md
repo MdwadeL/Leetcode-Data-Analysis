@@ -70,14 +70,13 @@ Write a solution to find the confirmation rate of each user.
 
 <br>
 
-  def fill_zero(signups):
+    def fill_zero(signups):
         columns = ['count_of_confirmed', 'count_of_request']
 
         for col in columns:
             signups[col] = signups[col].fillna(0)
         return signups
-        
-  fill_zero(signups)
+    fill_zero(signups)
 
 | user_id | time_stamp          | count_of_confirmed | count_of_request |
 | ------- | ------------------- | ------------------ | ---------------- |
