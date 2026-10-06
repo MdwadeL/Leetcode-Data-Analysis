@@ -33,8 +33,6 @@ The confirmation rate of a user is the number of 'confirmed' messages divided by
 
 Write a solution to find the confirmation rate of each user.
 
-<br>
-
 ### Skills
 - LEFT JOIN
 - Conditional aggregation
