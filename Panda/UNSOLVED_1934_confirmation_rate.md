@@ -1,10 +1,8 @@
 # 1934 Confirmation Rate
 
-## Skills
+### Skills
 - LEFT JOIN
 - Conditional aggregation
 - Rounding
 
 # Solution
-
-# runtime
