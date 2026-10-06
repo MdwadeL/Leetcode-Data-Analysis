@@ -1,27 +1,34 @@
-# 584 Find Customer Referee.py
-    id PK = {...id of customer}
-    name = {...name of customer}
-    referee_id = {...id of who referrence customer}
+# 584 Find Customer Referee
+Customer(id, name, referee_id)
+- PK = {id}
 
-    find the names of customers who were referenced by no one and customer's id that isn't 2
+| id | name | referee_id |
+| -- | ---- | ---------- |
+| 1  | Will | null       |
+| 2  | Jane | null       |
+| 3  | Alex | 2          |
+| 4  | Bill | null       |
+| 5  | Zack | 1          |
+| 6  | Mark | 2          |
+
+<br>
+
+Find the names of the customer that are either:
+- referred by any customer with id != 2.
+- not referred by any customer.
     
 ## Skills:
 - Filtering rows
 - NULL handling
 - Boolean OR
 
-# Solution 1
-    solution = customer[
-        (customer['referee_id'] != 2) |
-        (customer['referee_id']).isnull()
-    ][['name']]
+# Solution 
 
-    return solution
-### runtime: 296 ms
-### memory: 67.44 MB
+    return customer[ (customer['referee_id'] != 2) | (customer['referee_id']).isnull() ][['name']]
 
-
-# Solution 2
-        return customer[ (customer['referee_id'] != 2) | (customer['referee_id']).isnull() ][['name']]
-### runtime: 280ms
-### memory: 67.00 MB
+| name |
+| ---- |
+| Will |
+| Jane |
+| Bill |
+| Zack |
