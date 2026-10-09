@@ -32,6 +32,9 @@ Write a solution to report the fraction of players that logged in again on the d
     
     retention_rate = (freq_logs / total_logs).round(2)
 
+| fraction |
+| -------- |
+| 0.33     |
     frequency = pd.DataFrame({
         'fraction' : retention_rate
     })
